@@ -115,6 +115,12 @@ func (f *Feed) ToRss() (string, error) {
 	return ToXML(r)
 }
 
+// creates an AmazonRss representation of this feed
+func (f *Feed) ToAmazonRss() (string, error) {
+	r := &AmazonRss{f}
+	return ToXML(r)
+}
+
 // WriteRss writes an RSS representation of this feed to the writer.
 func (f *Feed) WriteRss(w io.Writer) error {
 	return WriteXML(&Rss{f}, w)
