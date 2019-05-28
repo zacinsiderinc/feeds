@@ -57,14 +57,19 @@ type AmazonRssItem struct {
 	Category     string `xml:"category,omitempty"`
 	Comments     string `xml:"comments,omitempty"`
 	Enclosure    *RssEnclosure
-	Guid         string           `xml:"guid,omitempty"`    // Id used
-	PubDate      string           `xml:"pubDate,omitempty"` // created or updated
-	Source       string           `xml:"source,omitempty"`
-	Creator      string           `xml:"dc:creator,omitempty"`
-	HeroImage    string           `xml:"amzn:heroImage,omitempty"`
-	IntroText    string           `xml:"amzn:introText,omitempty"`
-	IndexContent string           `xml:"amzn:indexContent,omitempty"`
-	Products     []*AmazonProduct `xml:"amzn:product"`
+	Guid         string          `xml:"guid,omitempty"`    // Id used
+	PubDate      string          `xml:"pubDate,omitempty"` // created or updated
+	Source       string          `xml:"source,omitempty"`
+	Creator      string          `xml:"dc:creator,omitempty"`
+	HeroImage    string          `xml:"amzn:heroImage,omitempty"`
+	IntroText    string          `xml:"amzn:introText,omitempty"`
+	IndexContent string          `xml:"amzn:indexContent,omitempty"`
+	Products     *AmazonProducts `xml:"amzn:products"`
+}
+
+// AmazonProducts is a slice of products
+type AmazonProducts struct {
+	Products []*AmazonProduct `xml:"amzn:product"`
 }
 
 // AmazonProduct has the slide-specific fields
